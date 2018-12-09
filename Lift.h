@@ -12,6 +12,12 @@ typedef enum liftDoorState_
     LIFT_DOOR_OPEN,
 } liftDoorState;
 
+typedef enum liftDirection_
+{
+    DOWN,
+    UP
+} liftDirection;
+
 class Lift
 {
 public:
@@ -20,6 +26,10 @@ public:
     virtual ~Lift();
 
     unsigned int getCurrentLevel() const;
+
+    void call(unsigned int floor, liftDirection direction);
+
+    void process(void);
 
 private:
     void ascend(void);

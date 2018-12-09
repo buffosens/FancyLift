@@ -40,3 +40,13 @@ void Lift::bing(void)
 {
     std::cout << "Bing!" << std::endl;
 }
+
+void Lift::call(unsigned int floor, liftDirection direction)
+{
+
+}
+
+void Lift::process(void)
+{
+
+}

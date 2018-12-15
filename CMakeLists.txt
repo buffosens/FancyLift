@@ -3,4 +3,4 @@ project(FancyLift)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(FancyLift main.cpp Lift.cpp Lift.h House.cpp House.h)
+add_executable(FancyLift main.cpp Lift.cpp Lift.h House.cpp House.h Command.cpp Command.h)

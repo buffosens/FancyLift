@@ -31,7 +31,7 @@ int main()
     Command cmd2(function::IRIS_OFF, readWrite::READ, 2);
     Command cmd3(function::SET_UART, readWrite::WRITE, 3);
 
-    mymap = {{1, &cmd1}, {2, &cmd2}, {3, &cmd3}};
+    mymap = {{1, &cmd1}, {2, &cmd2}};
 
   //  std::unordered_map<std::string,std::string> mymap;
   //  mymap = {{"Australia","Canberra"},{"U.S.","Washington"},{"France","Paris"}};
@@ -41,20 +41,22 @@ int main()
  //       std::cout << " " << it->first << ":" << it->second;
  //   std::cout << std::endl;
 
+    mymap.emplace(std::make_pair(3, &cmd3));
     std::cout << "mymap contains:";
-    for ( auto it = mymap.begin(); it != mymap.end(); ++it )
+    for ( auto it = mymap.begin(); it != mymap.end(); ++it ) {
         std::cout << " " << it->first << ":" << it->second->index;
+    }
     std::cout << std::endl;
 
-    /*
-     * std::cout << "mymap's buckets contain:\n";
+
+    std::cout << "mymap's buckets contain:\n";
     for ( unsigned i = 0; i < mymap.bucket_count(); ++i) {
         std::cout << "bucket #" << i << " contains:";
         for ( auto local_it = mymap.begin(i); local_it!= mymap.end(i); ++local_it )
-            std::cout << " " << local_it->first << ":" << local_it->second;
+            std::cout << " " << local_it->first << ":" << local_it->second->index;
         std::cout << std::endl;
     }
-*/
+
 
     return 0;
 }
